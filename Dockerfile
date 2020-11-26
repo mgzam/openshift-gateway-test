@@ -4,8 +4,7 @@ USER root
 
 COPY root/etc/yum.repos.d/mariadb.repo /etc/yum.repos.d/
 
-COPY root/etc/yum.conf /etc/yum.conf
-
+RUN sed -i "/^timeout.*/d" /etc/yum.conf
 
 RUN rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB && \	
 	yum install -y \	
