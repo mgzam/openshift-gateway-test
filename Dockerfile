@@ -11,14 +11,5 @@ RUN yum install -y \
       policycoreutils \
 	  openssl && \
     yum clean all
-
-RUN touch /opt/SecureSpan/Gateway/node/default/etc/bootstrap/services/restman
-RUN touch /opt/SecureSpan/Gateway/node/default/etc/bootstrap/services/wsman
- 
-RUN chmod 640 /opt/SecureSpan/Gateway/runtime/lib/ext/*
-
-RUN chmod 640 /opt/SecureSpan/Gateway/runtime/modules/lib/*
-
-RUN chmod 750 /opt/docker/entrypoint.sh
-
+    
 USER ${ENTRYPOINT_UID}
